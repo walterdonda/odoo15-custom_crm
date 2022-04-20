@@ -17,6 +17,7 @@ class Visit(models.Model):
                        index=True,
                        required=True)
     done = fields.Boolean(string='Realizada?')
+    image = fields.Binary(string='Imagen')
 
     def toggle_state_visit(self):
         self.done = not self.done
