@@ -1,4 +1,5 @@
 from odoo import fields, models
+import datetime
 
 
 class Visit(models.Model):
@@ -9,13 +10,13 @@ class Visit(models.Model):
 
     name = fields.Char(string='Descripción')
     customer = fields.Many2one(string='Cliente', comodel_name='res.partner')
-    date = fields.Datetime(string='Fecha de visita')
+    date = fields.Datetime(string='Fecha de visita', default=str(datetime.datetime.now()))
     type = fields.Selection(
         [('P', 'Presencial'), ('R', 'Remota')],
         string='Tipo de visita', required=True)
     state = fields.Selection(
         [('P', 'Pendiente'), ('C', 'En curso'), ('T', 'Terminada')],
-        string='Tipo de visita', required=True)
+        string='Estado de visita', required=True, default='P')
     code = fields.Char(string='Código de visita',
                        help='Código único de soporte o implementación',
                        index=True,
