@@ -6,6 +6,9 @@
             <field name="model">custom_crm.visit</field>
             <field name="arch" type="xml">
                 <form string="Visita">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="expense_button_box">
                             <button name="toggle_state_visit"
@@ -17,7 +20,7 @@
                         </div>
                         <group name="group_top">
                             <group name="group_left">
-                                <field name="customer"/>
+                                <field name="customer" widget="many2one_tags"/>
                                 <field name="date"/>
                                 <field name="type"/>
                             </group>
@@ -26,7 +29,6 @@
                                 <field name="done"/>
                                 <field name="code"/>
                                 <field name="image" widget="image"/>
-
                             </group>
 
                         </group>
