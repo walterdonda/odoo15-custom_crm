@@ -15,7 +15,7 @@
                                     type="object"
                                     confirm="This action change the state of the visit.Do you want to proceed?"
                                     class="oe_stat_button"
-                                    icon="fa-archive"
+                                    icon="fa-forward"
                                     string="Cambiar estado visita"/>
                         </div>
                         <group name="group_top">

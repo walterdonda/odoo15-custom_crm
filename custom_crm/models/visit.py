@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 import datetime
 
 
@@ -26,3 +26,18 @@ class Visit(models.Model):
 
     def toggle_state_visit(self):
         self.done = not self.done
+
+class ReporteVisit(models.AbstractModel):
+    _name = 'report.custom_crm.report_visit_card'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report_obj = self.env['ir.actions.report']
+        report = report_obj._get_report_from_name('custom_crm.report_visit_card')
+        return {
+            'docids': docids,
+            'doc_model': self.env['custom_crm.visit'],
+            'docs': self.env['custom_crm.visit'].browse(docids)
+        }
+
+

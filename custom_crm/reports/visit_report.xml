@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same!!!-->
+                <report
+                    id="custom_crm_visit_report"
+                    model="custom_crm.visit"
+                    report_type="qweb-pdf"
+                    string="Informe de visita"
+                    name="custom_crm.report_visit_card"
+                    file="custom_crm.report_visit_card"
+                    attachment_use="True"
+                />
+
+
+
+    </data>
+</odoo>
+
